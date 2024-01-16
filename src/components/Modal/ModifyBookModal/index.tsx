@@ -2,7 +2,8 @@ import { bookListSlice } from "@/lib/features/bookList/bookListSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import Modal, { BasicModalProps } from "..";
 import styles from "./index.module.css";
-import { bookCategories } from "@/types/bookdata";
+import { BookCategories, bookCategories } from "@/types/bookdata";
+import { isNumber } from "util";
 
 interface ModifyBookModal extends BasicModalProps {
   index: number;
@@ -13,15 +14,39 @@ export default function ModifyBookModal(props: ModifyBookModal) {
   const dispatch = useAppDispatch();
 
   const handleModifyNewBook = (formData: FormData) => {
-    const newBook = {
-      title: formData.get("title"),
-      price: formData.get("price"),
-      category: formData.get("category"),
-      description: formData.get("description"),
-    };
+    try {
+      // type checking for Typescript
+      const price = formData.get("price");
 
-    dispatch(bookListSlice.actions.modifyBook([newBook, props.index]));
-    props.close();
+      if (
+        price === null ||
+        isNaN(Number(price)) ||
+        typeof Number(price) !== "number"
+      ) {
+        throw "Invalid Number";
+      }
+
+      const category = formData.get("category");
+      if (
+        category === null ||
+        (typeof category === "string" &&
+          !bookCategories.includes(category as BookCategories))
+      ) {
+        throw "Invalid Category";
+      }
+
+      const newBook = {
+        title: formData.get("title") as string,
+        price: Number(price),
+        category: category as BookCategories,
+        description: formData.get("description") as string,
+      };
+
+      dispatch(bookListSlice.actions.modifyBook([newBook, props.index]));
+      props.close();
+    } catch (e) {
+      alert(e);
+    }
   };
 
   const elementSelectCategory = bookCategories.map((category, index) => {

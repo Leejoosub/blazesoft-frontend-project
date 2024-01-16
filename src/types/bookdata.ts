@@ -5,7 +5,7 @@ export const bookCategories = [
   "Comedy",
 ] as const;
 
-export type BookCategories = (typeof bookCategories)[number][];
+export type BookCategories = (typeof bookCategories)[number];
 
 export interface BookData {
   title: string;
