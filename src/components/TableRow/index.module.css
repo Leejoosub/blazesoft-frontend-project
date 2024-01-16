@@ -1,0 +1,59 @@
+.rowContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0 5px 0;
+  align-items: center;
+}
+.topRowContainer div {
+  word-wrap: normal;
+}
+
+.coloredRow {
+  background-color: rgb(199, 199, 199);
+}
+
+.topRowContainer {
+  border-bottom: 1px solid grey;
+}
+
+.bookTitle {
+  width: 15%;
+  max-width: 25%;
+  /* background-color: red; */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.bookCategory {
+  width: 15%;
+  max-width: 25%;
+  /* background-color: purple; */
+  text-overflow: ellipsis;
+}
+.bookPrice {
+  width: 15%;
+  max-width: 25%;
+  word-wrap: break-word;
+}
+
+.bookDelete {
+  width: 15%;
+  max-width: 25%;
+  text-overflow: ellipsis;
+  display: flex;
+}
+
+.deleteButton {
+  background-color: rgb(209, 160, 160);
+  padding: 5px;
+  border-radius: 100px;
+  border: rgb(70, 70, 70) 1px solid;
+}
+
+.deleteButton:hover {
+  background-color: rgb(255, 133, 133);
+}
+
+.deleteButton:active {
+  background-color: rgb(255, 114, 114);
+}

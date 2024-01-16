@@ -1,0 +1,33 @@
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contentContainer label {
+  display: block;
+  margin-top: 10px;
+}
+
+.contentContainer input {
+  border-radius: 10px;
+  color: rgb(55 65 81);
+  height: 30px;
+  margin-top: 5px;
+  padding: 5px;
+  border: grey 1px solid;
+}
+
+.contentContainer textarea {
+  border-radius: 10px;
+  color: rgb(55 65 81);
+  height: 30px;
+  margin-top: 5px;
+  padding: 5px;
+  border: grey 1px solid;
+}
+
+.checkboxLabelContainer {
+  display: flex;
+  flex-direction: row;
+}
