@@ -28,11 +28,15 @@ export default function TableRow(props: TableRowProps) {
         className={`${styles.rowContainer} ${
           props.colorRow ? styles.coloredRow : ""
         }`}
-        onClick={() => {
-          setModifyModalOpen(true);
-        }}
       >
-        <div className={styles.bookTitle}>{props.title}</div>
+        <div
+          className={styles.bookTitle + " " + styles.bookTitleModifiable}
+          onClick={() => {
+            setModifyModalOpen(true);
+          }}
+        >
+          {props.title}
+        </div>
         <div className={styles.bookCategory}>{props.category}</div>
         <div className={styles.bookPrice}>
           <p>${props.price}</p>

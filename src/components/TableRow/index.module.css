@@ -24,6 +24,10 @@
   word-wrap: break-word;
 }
 
+.bookTitleModifiable:hover {
+  cursor: pointer;
+}
+
 .bookCategory {
   width: 15%;
   max-width: 25%;
